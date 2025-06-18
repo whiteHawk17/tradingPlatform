@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
     setUser(null);
-    window.location.replace("http://localhost:3000/login");
+    window.location.replace("https://trading-paltform.vercel.app/login");
   };
 
   return (

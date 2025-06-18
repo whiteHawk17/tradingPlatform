@@ -4,7 +4,7 @@ import axios from "axios";
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
 
-const API_BASE_URL = "http://localhost:3002";
+const API_BASE_URL = "https://trading-paltform-backend.vercel.app";
 
 const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);

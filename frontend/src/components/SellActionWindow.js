@@ -5,7 +5,7 @@ import GeneralContext from "./GeneralContext";
 import "./SellActionWindow.css";
 import jwt_decode from "jwt-decode";
 
-const API_BASE_URL = "http://localhost:3002";
+const API_BASE_URL = "https://trading-paltform-backend.vercel.app";
 
 const SellActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);

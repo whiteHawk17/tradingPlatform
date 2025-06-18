@@ -36,7 +36,7 @@ app.use(cors({
     'https://trading-paltform-2rrf.vercel.app'
   ],
  
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
   credentials: true
 }));
 app.options('*', cors());

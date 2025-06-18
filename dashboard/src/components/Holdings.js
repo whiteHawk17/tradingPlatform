@@ -17,7 +17,9 @@ const Holdings = () => {
     const fetchHoldings = async () => {
       try {
         setLoading(true);
+        console.log("Fetching holdings...");
         const response = await axios.get("/userHoldings");
+        console.log("Holdings response:", response);
         setAllHolding(response.data);
         setError(null);
       } catch (error) {
@@ -38,10 +40,13 @@ const Holdings = () => {
   if (error) {
     return <div className="error-message">{error}</div>;
   }
+  
 
   return (
+   
     <>
       <h3 className="title">Holdings ({allHoldings.length})</h3>
+      
 
       <div className="order-table">
         <table>

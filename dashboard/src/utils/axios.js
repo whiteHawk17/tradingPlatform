@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3002',  // Updated to match backend port
+    baseURL: '/',  // Use relative URL since proxy is configured
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'

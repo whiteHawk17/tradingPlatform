@@ -9,7 +9,6 @@ import Positions from './components/Positions';
 import Funds from './components/Funds';
 import Summary from './components/Summary';
 import Apps from './components/Apps';
-import TopBar from './components/TopBar';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -24,14 +23,7 @@ const ProtectedRoute = ({ children }) => {
     return null; // Return null to prevent further rendering of this component
   }
 
-  return (
-    <div className="flex flex-col h-screen">
-      <TopBar />
-      <div className="flex-1">
-        <DashboardLayout>{children}</DashboardLayout>
-      </div>
-    </div>
-  );
+  return children;
 };
 
 const App = () => {
@@ -43,58 +35,18 @@ const App = () => {
             path="/"
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <DashboardLayout />
               </ProtectedRoute>
             }
-          />
-          <Route
-            path="/holdings"
-            element={
-              <ProtectedRoute>
-                <Holdings />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/orders"
-            element={
-              <ProtectedRoute>
-                <Orders />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/positions"
-            element={
-              <ProtectedRoute>
-                <Positions />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/funds"
-            element={
-              <ProtectedRoute>
-                <Funds />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/summary"
-            element={
-              <ProtectedRoute>
-                <Summary />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/apps"
-            element={
-              <ProtectedRoute>
-                <Apps />
-              </ProtectedRoute>
-            }
-          />
+          >
+            <Route index element={<Dashboard />} />
+            <Route path="holdings" element={<Holdings />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="positions" element={<Positions />} />
+            <Route path="funds" element={<Funds />} />
+            <Route path="summary" element={<Summary />} />
+            <Route path="apps" element={<Apps />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

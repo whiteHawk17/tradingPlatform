@@ -27,8 +27,12 @@ const Login = () => {
 
         try {
             await login(formData.email, formData.password);
-            // Redirect to dashboard after successful login
-            window.location.href = 'http://localhost:3001';
+            console.log('Login successful, token stored:', localStorage.getItem('token'));
+            console.log('UserName stored:', localStorage.getItem('userName'));
+            // Redirect to dashboard after successful login with token in URL
+            const token = localStorage.getItem('token');
+            const userName = localStorage.getItem('userName');
+            window.location.href = `http://localhost:3001?token=${token}&userName=${userName}`;
         } catch (err) {
             setError(err.response?.data?.message || 'Something went wrong');
         } finally {

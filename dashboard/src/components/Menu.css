@@ -34,7 +34,7 @@
 
 .profile-dropdown {
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 0;
   background-color: #1e1e1e;
   border: 1px solid #333;

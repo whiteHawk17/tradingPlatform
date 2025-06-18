@@ -10,12 +10,14 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const userName = localStorage.getItem('userName');
     console.log('Dashboard AuthContext: Token from localStorage', token);
+    console.log('Dashboard AuthContext: UserName from localStorage', userName);
 
     if (!token) {
       setLoading(false);
       console.log('Dashboard AuthContext: No token found, redirecting to login');
-      window.location.replace('http://localhost:3000/login');
+      window.location.href = `http://localhost:3001?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
       return;
     }
 
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         console.error("Dashboard AuthContext: Auth check failed:", error.response?.data || error.message);
         localStorage.removeItem('token');
         localStorage.removeItem('userName');
-        window.location.replace('http://localhost:3000/login');
+        window.location.href = `http://localhost:3001?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
       } finally {
         setLoading(false);
       }
@@ -53,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
     setUser(null);
-    window.location.replace('http://localhost:3000/login');
+    window.location.href = `http://localhost:3001?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
   };
 
   const value = {

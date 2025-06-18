@@ -31,7 +31,10 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: [
+    'https://trading-paltform.vercel.app',
+    'https://trading-paltform-2rrf.vercel.app'
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

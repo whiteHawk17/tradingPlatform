@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: '/',  // Use relative URL since proxy is configured
+    baseURL: 'https://trading-paltform-mpw5.vercel.app/',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'

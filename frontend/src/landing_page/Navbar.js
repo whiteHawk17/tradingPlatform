@@ -69,7 +69,7 @@ function Navbar() {
                 <li className="nav-item">
                   <a
                     className="nav-link"
-                    href={`http://localhost:3001?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`}
+                    href={`https://trading-paltform-2rrf.vercel.app/?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

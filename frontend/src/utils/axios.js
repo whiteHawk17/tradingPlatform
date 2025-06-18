@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: '/',
+    baseURL: 'https://trading-paltform-mpw5.vercel.app/',
 });
 
 // Add a request interceptor

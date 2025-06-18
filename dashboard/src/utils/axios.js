@@ -29,7 +29,7 @@ instance.interceptors.response.use(
         if (error.response?.status === 401) {
             localStorage.removeItem('token');
             localStorage.removeItem('userName');
-            window.location.replace('http://localhost:3000/login');
+            window.location.replace('https://trading-paltform.vercel.app/login');
         }
         return Promise.reject(error);
     }

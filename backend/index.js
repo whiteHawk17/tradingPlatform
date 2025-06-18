@@ -29,7 +29,7 @@ console.log('JWT_SECRET:', process.env.JWT_SECRET ? 'Set' : 'Not set');
 
 const app = express();
 
-// Configure CORS
+// Configure CORS (must be before any routes)
 app.use(cors({
   origin: [
     'https://trading-paltform.vercel.app',

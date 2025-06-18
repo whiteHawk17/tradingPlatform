@@ -67,9 +67,14 @@ function Navbar() {
             {user && (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/dashboard">
+                  <a
+                    className="nav-link"
+                    href={`http://localhost:3001?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Dashboard
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <button className="nav-link btn btn-link p-0" style={{ color: "#555" }} onClick={handleLogout}>

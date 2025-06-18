@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React, { useContext } from "react";
 import GeneralContext from "./GeneralContext";
+import DounbtChart from "./DounbtChart";
 
 import { Tooltip, Grow } from "@mui/material";
 
@@ -31,6 +32,8 @@ const WatchList = () => {
           return <WatchListItem stock={stock} key={index} />;
         })}
       </ul>
+
+      <DounbtChart watchlistData={watchlist} />
     </div>
   );
 };

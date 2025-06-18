@@ -5,6 +5,7 @@ import React,{useState,useEffect, useContext} from "react";
 // import {holdings} from "../data/data";
 import axios from "../utils/axios";
 import GeneralContext from "./GeneralContext";
+import VerticalGraph from "./VerticalGraph";
 
 
 const Holdings = () => {
@@ -103,6 +104,9 @@ const Holdings = () => {
           <h5>1,553.40 (+5.20%)</h5>
           <p>P&L</p>
         </div>
+      </div>
+      <div style={{ maxWidth: 700, margin: '40px auto' }}>
+        <VerticalGraph holdingsData={allHoldings} />
       </div>
     </>
   );

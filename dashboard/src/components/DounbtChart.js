@@ -61,11 +61,8 @@ const DounbtChart = ({ watchlistData }) => {
         },
       },
       title: {
-        display: true,
-        text: 'Watchlist Stock Price Distribution',
-        font: {
-          size: 20,
-          family: 'Inter, Arial, sans-serif',
+        display: false,
+        
         },
         color: '#222',
         padding: { top: 10, bottom: 30 },

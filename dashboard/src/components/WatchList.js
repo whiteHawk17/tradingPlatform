@@ -1,5 +1,4 @@
-import { useState } from "react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import GeneralContext from "./GeneralContext";
 import DounbtChart from "./DounbtChart";
 
@@ -13,9 +12,24 @@ import {
   MoreHoriz,
 } from "@mui/icons-material";
 
-const WatchList = () => {
+const WatchList = ({ isMobile, isWatchlistOpen }) => {
+  if (isMobile && !isWatchlistOpen) return null;
   return (
-    <div className="watchlist-container">
+    <div className={`watchlist-container${isMobile ? ' mobile' : ''}${isMobile && isWatchlistOpen ? ' open' : ''}`}>
+      {isMobile && (
+        <div className="indices-container">
+          <div className="nifty">
+            <p className="index">NIFTY 50</p>
+            <p className="index-points">{100.2} </p>
+            <p className="percent"> </p>
+          </div>
+          <div className="sensex">
+            <p className="index">SENSEX</p>
+            <p className="index-points">{100.2}</p>
+            <p className="percent"></p>
+          </div>
+        </div>
+      )}
       <div className="search-container">
         <input
           type="text"
@@ -28,31 +42,40 @@ const WatchList = () => {
       </div>
 
       <ul className="list">
-        {watchlist.map((stock, index) => {
-          return <WatchListItem stock={stock} key={index} />;
-        })}
+        {watchlist.map((stock, index) => (
+          <WatchListItem
+            stock={stock}
+            key={index}
+          />
+        ))}
       </ul>
 
-      <DounbtChart watchlistData={watchlist} />
+      <div className="watchlist-chart-title" style={{ textAlign: 'center', margin: '24px 0 8px 0', fontWeight: 600, fontSize: '1.1rem' }}>
+        Watchlist Stock Price Distribution
+      </div>
+      <div className="watchlist-chart-container">
+        <DounbtChart watchlistData={watchlist} />
+      </div>
     </div>
   );
 };
 
-export default WatchList;
-
 const WatchListItem = ({ stock }) => {
   const [showWatchlistActions, setShowWatchlistActions] = useState(false);
 
-  const handleMouseEnter = (e) => {
+  const handleMouseEnter = () => {
     setShowWatchlistActions(true);
   };
-
-  const handleMouseLeave = (e) => {
+  const handleMouseLeave = () => {
     setShowWatchlistActions(false);
   };
 
   return (
-    <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <li
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ cursor: 'pointer' }}
+    >
       <div className="item">
         <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
         <div className="itemInfo">
@@ -73,13 +96,22 @@ const WatchListItem = ({ stock }) => {
 const WatchListActions = ({ uid }) => {
   const generalContext = useContext(GeneralContext);
 
-  const handleBuyClick = () => {
+  const handleBuyClick = (e) => {
+    e.stopPropagation();
     generalContext.openBuyWindow(uid);
   };
-  const handleSellClick=()=>{
+  const handleSellClick = (e) => {
+    e.stopPropagation();
     generalContext.openSellWindow(uid);
-
-  }
+  };
+  const handleAnalyticsClick = (e) => {
+    e.stopPropagation();
+    // Analytics logic here
+  };
+  const handleMoreClick = (e) => {
+    e.stopPropagation();
+    // More logic here
+  };
   return (
     <span className="actions">
       <span>
@@ -88,18 +120,16 @@ const WatchListActions = ({ uid }) => {
           placement="top"
           arrow
           slots={{ transition: Grow }}
-          onClick={handleBuyClick}
         >
-          <button className="buy">Buy</button>
+          <button className="buy" onClick={handleBuyClick}>Buy</button>
         </Tooltip>
         <Tooltip
           title="Sell (S)"
           placement="top"
           arrow
           slots={{ transition: Grow }}
-          onClick={handleSellClick}
         >
-          <button className="sell">Sell</button>
+          <button className="sell" onClick={handleSellClick}>Sell</button>
         </Tooltip>
         <Tooltip
           title="Analytics (A)"
@@ -107,7 +137,7 @@ const WatchListActions = ({ uid }) => {
           arrow
           slots={{ transition: Grow }}
         >
-          <button className="action">
+          <button className="action" onClick={handleAnalyticsClick}>
             <BarChartOutlined className="icon" />
           </button>
         </Tooltip>
@@ -117,7 +147,7 @@ const WatchListActions = ({ uid }) => {
           arrow
           slots={{ transition: Grow }}
         >
-          <button className="action">
+          <button className="action" onClick={handleMoreClick}>
             <MoreHoriz className="icon" />
           </button>
         </Tooltip>
@@ -125,3 +155,5 @@ const WatchListActions = ({ uid }) => {
     </span>
   );
 };
+
+export default WatchList;

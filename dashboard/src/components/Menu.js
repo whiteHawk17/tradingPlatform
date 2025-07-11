@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./Menu.css";
 
-const Menu = () => {
+const Menu = ({ isMenuOpen, setIsMenuOpen }) => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropDownOpen, setIsProfileDropDownOpen] = useState(false);
   const { user, logout } = useAuth();
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
+    if (window.innerWidth <= 600) setIsMenuOpen(false); // close drawer on mobile nav
   };
 
   const handleProfileClick = () => {
@@ -37,58 +38,86 @@ const Menu = () => {
       .slice(0, 2);
   };
 
+  // Detect mobile
+  const isMobile = window.innerWidth <= 600;
+
+  // Overlay click closes menu
+  const handleOverlayClick = () => setIsMenuOpen(false);
+
+  // Only render menu on mobile if open, always render on desktop
+  if (isMobile && !isMenuOpen) return null;
+
   return (
-    <div className="menu-container">
-      <img src="logo192.png" alt="Logo" style={{ width: "50px" }} />
-      <div className="menus">
-        <ul>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/" onClick={() => handleMenuClick(0)}>
-              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}>Dashboard</p>
-            </Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/orders" onClick={() => handleMenuClick(1)}>
-              <p className={selectedMenu === 1 ? activeMenuClass : menuClass}>Orders</p>
-            </Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/holdings" onClick={() => handleMenuClick(2)}>
-              <p className={selectedMenu === 2 ? activeMenuClass : menuClass}>Holdings</p>
-            </Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/positions" onClick={() => handleMenuClick(3)}>
-              <p className={selectedMenu === 3 ? activeMenuClass : menuClass}>Positions</p>
-            </Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/funds" onClick={() => handleMenuClick(4)}>
-              <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>Funds</p>
-            </Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/apps" onClick={() => handleMenuClick(5)}>
-              <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>Apps</p>
-            </Link>
-          </li>
-        </ul>
-        <hr />
-        <div className="profile-container">
-          <div className="profile" onClick={handleProfileClick}>
+    <>
+      {isMobile && isMenuOpen && <div className="menu-overlay" onClick={handleOverlayClick}></div>}
+      <div className={`menu-container${isMobile ? ' mobile' : ''}${isMobile && isMenuOpen ? ' open' : ''}`}>
+        {isMobile && (
+          <div className="drawer-user-info">
             <div className="avatar">{getUserInitials()}</div>
-            <p className="username">{user?.name || "User"}</p>
+            <div className="username">{user?.name || "User"}</div>
           </div>
-          {isProfileDropDownOpen && (
-            <div className="profile-dropdown">
-              <div className="dropdown-item" onClick={handleLogout}>
-                Logout
+        )}
+        {!isMobile && (
+          <img src="logo192.png" alt="Logo" style={{ width: "50px", margin: '0 auto', display: 'block' }} />
+        )}
+        <div className={`menus${isMobile ? ' single-column' : ''}`}>
+          <ul>
+            <li>
+              <Link style={{ textDecoration: "none" }} to="/" onClick={() => handleMenuClick(0)}>
+                <p className={selectedMenu === 0 ? activeMenuClass : menuClass}>Dashboard</p>
+              </Link>
+            </li>
+            <li>
+              <Link style={{ textDecoration: "none" }} to="/orders" onClick={() => handleMenuClick(1)}>
+                <p className={selectedMenu === 1 ? activeMenuClass : menuClass}>Orders</p>
+              </Link>
+            </li>
+            <li>
+              <Link style={{ textDecoration: "none" }} to="/holdings" onClick={() => handleMenuClick(2)}>
+                <p className={selectedMenu === 2 ? activeMenuClass : menuClass}>Holdings</p>
+              </Link>
+            </li>
+            <li>
+              <Link style={{ textDecoration: "none" }} to="/positions" onClick={() => handleMenuClick(3)}>
+                <p className={selectedMenu === 3 ? activeMenuClass : menuClass}>Positions</p>
+              </Link>
+            </li>
+            <li>
+              <Link style={{ textDecoration: "none" }} to="/funds" onClick={() => handleMenuClick(4)}>
+                <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>Funds</p>
+              </Link>
+            </li>
+            <li>
+              <Link style={{ textDecoration: "none" }} to="/apps" onClick={() => handleMenuClick(5)}>
+                <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>Apps</p>
+              </Link>
+            </li>
+            {/* Mobile logout menu item */}
+            {isMobile && (
+              <li onClick={handleLogout} style={{ cursor: 'pointer' }}>
+                <p className={menuClass}>Logout</p>
+              </li>
+            )}
+          </ul>
+          <hr />
+          {!isMobile && (
+            <div className="profile-container">
+              <div className="profile" onClick={handleProfileClick}>
+                <div className="avatar">{getUserInitials()}</div>
+                <p className="username">{user?.name || "User"}</p>
               </div>
+              {isProfileDropDownOpen && (
+                <div className="profile-dropdown">
+                  <div className="dropdown-item" onClick={handleLogout}>
+                    Logout
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -64,9 +64,6 @@ const DounbtChart = ({ watchlistData }) => {
         display: false,
         
         },
-        color: '#222',
-        padding: { top: 10, bottom: 30 },
-      },
       tooltip: {
         callbacks: {
           label: function(context) {

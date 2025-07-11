@@ -12,22 +12,25 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg border-bottom" style={{ backgroundColor: "#FFF" }}>
+    <nav className="navbar navbar-expand-lg border-bottom" style={{ backgroundColor: "#FFF", borderBottom: "1px solid #e5e5e5" }}>
       <div className="container p-2">
-        <Link className="navbar-brand" to="/">
-          <img src="media/images/logo.svg" alt="logo" style={{ width: "25%" }} />
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="d-flex justify-content-between align-items-center w-100">
+          <Link className="navbar-brand m-0" to="/">
+            <img src="media/images/logo.svg" alt="logo" style={{ width: "25%" }} />
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            style={{ border: "1px solid #bbb", boxShadow: "none", padding: "6px 14px", borderRadius: 8, background: "#fff" }}
+          >
+            <span className="navbar-toggler-icon" style={{ width: 22, height: 22 }}></span>
+          </button>
+        </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">

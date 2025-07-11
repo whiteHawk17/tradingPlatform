@@ -47,3 +47,401 @@ ol{
   flex-direction: column;
   gap:15px;
 }
+
+/* Improved Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+    background: #fff;
+  }
+  .container {
+    padding: 1.2rem 0.7rem !important;
+    max-width: 100vw !important;
+  }
+  .row {
+    flex-direction: column !important;
+    margin: 0 !important;
+    gap: 0.5rem;
+  }
+  .col, .col-12, .col-md-6, .col-md-4, .col-md-7, .col-md-5 {
+    width: 100% !important;
+    padding: 0.5rem 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+  img, .img-fluid {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  button, .btn {
+    width: auto !important;
+    min-width: 160px;
+    max-width: 90vw;
+    font-size: 1rem !important;
+    padding: 0.7rem 1.2rem !important;
+    margin: 1rem auto 0.5rem auto !important;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+  }
+  /* Add margin below 'Sign up for free' button */
+  .btn.btn-primary, button.btn-primary {
+    margin-bottom: 2em !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.25em !important;
+    word-break: break-word;
+    margin: 0.7em 0 0.4em 0;
+    line-height: 1.2;
+  }
+  p, li {
+    font-size: 1em !important;
+    word-break: break-word;
+    margin-bottom: 0.5em;
+  }
+  .text-center {
+    text-align: center !important;
+  }
+  .mb-5, .mt-5, .p-5 {
+    margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
+    padding: 1rem !important;
+  }
+  /* Footer improvements */
+  footer, .footer {
+    padding: 1.2rem 0.5rem !important;
+    background: #f8f9fa;
+  }
+  .footer-logo {
+    margin-bottom: 0.7rem;
+  }
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+  .footer-column {
+    flex: 1 1 45%;
+    min-width: 120px;
+    margin-bottom: 0.7rem;
+  }
+  .footer-column ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  .footer-column li {
+    margin-bottom: 0.3rem;
+  }
+  /* Hide empty columns on mobile */
+  .d-none, .d-md-block {
+    display: none !important;
+  }
+  /* Make logo bigger */
+  .navbar-brand img {
+    width: 110px !important;
+    max-width: 40vw !important;
+    height: auto !important;
+    margin-left: 8px !important;
+  }
+  /* Make hamburger icon smaller */
+  .navbar-toggler .navbar-toggler-icon {
+    width: 15px !important;
+    height: 15px !important;
+    background-size: 15px 15px !important;
+  }
+  /* Optionally reduce button padding for hamburger */
+  .navbar-toggler {
+    padding: 4px 6px !important;
+    margin-right: 8px !important;
+    min-width: 36px !important;
+    width: 36px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Stack homepage sections vertically: image on top, text below */
+  .row.flex-wrap.align-items-center[style*="flex-direction: row"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .row.p-2.flex-wrap.align-items-center[style*="flex-direction: row"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .col-12, .col-md-6, .col-md-5, .col-md-7, .col-md-4, .col-md-2, .col-md {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+  .d-none.d-md-block {
+    display: none !important;
+  }
+  /* Make images full width in these sections */
+  .row img, .row .img-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto 1rem auto !important;
+    display: block;
+  }
+  /* Remove extra padding/margin from containers */
+  .container, .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  /* Section containers: subtle padding and margin */
+  .container, .container-fluid {
+    padding: 1.2rem 1rem !important;
+    margin: 1.2rem 0 !important;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(60,60,60,0.03);
+  }
+  /* Reduce image size and add margin */
+  .row img, .row .img-fluid {
+    width: 80% !important;
+    max-width: 80vw !important;
+    margin: 0 auto 1.2rem auto !important;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(60,60,60,0.06);
+  }
+  /* Add spacing between image and text */
+  .row > *:not(img):not(.img-fluid) {
+    margin-top: 0.7rem !important;
+  }
+  /* Section heading spacing */
+  h1, h2, h3 {
+    margin-top: 0.7em !important;
+    margin-bottom: 0.5em !important;
+  }
+  /* List spacing */
+  ul, ol {
+    margin-bottom: 0.7em !important;
+  }
+  /* Headings: font size, margin, padding for all homepage sections */
+  h1 {
+    font-size: 1.35rem !important;
+    margin-top: 0.7em !important;
+    margin-bottom: 0.5em !important;
+    padding: 0 0.1em;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 1.18rem !important;
+    margin-top: 0.6em !important;
+    margin-bottom: 0.4em !important;
+    padding: 0 0.1em;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: 0.98rem !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.3em !important;
+    padding: 0 0.1em;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  /* Paragraphs and lists: font size and spacing */
+  p, li {
+    font-size: 0.92rem !important;
+    margin-bottom: 0.35em !important;
+    line-height: 1.45;
+  }
+  ul, ol {
+    margin-bottom: 0.6em !important;
+    padding-left: 1.1em !important;
+  }
+  .row.p-2.flex-wrap.align-items-center {
+    font-size: 0.93rem !important;
+  }
+  .row.p-2.flex-wrap.align-items-center, .row.p-2.flex-wrap.align-items-center * {
+    font-size: 0.93rem !important;
+  }
+  /* Footer logo smaller */
+  .footer-logo img, footer img {
+    max-width: 110px !important;
+    width: 38vw !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* Footer columns: 2-column flex layout, less gap */
+  .footer-columns {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+  }
+  .footer-column {
+    flex: 1 1 48%;
+    min-width: 120px;
+    margin-bottom: 0.5rem !important;
+    padding: 0 0.2rem !important;
+  }
+  .footer-column ul {
+    padding-left: 0 !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .footer-column li {
+    margin-bottom: 0.2rem !important;
+    font-size: 0.93rem !important;
+  }
+  /* Footer legal/disclaimer text smaller */
+  footer, .footer, .footer-legal, .footer-disclaimer {
+    font-size: 0.85rem !important;
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* Footer Company section: only show first 3 links in a row */
+  .footer-column:first-child ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 0.7em !important;
+    width: 100%;
+  }
+  .footer-column:first-child ul li {
+    display: none !important;
+  }
+  .footer-column:first-child ul li:nth-child(-n+3) {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 !important;
+    font-size: 0.93rem !important;
+    white-space: nowrap;
+  }
+  /* Footer Company section: only show first 3 links in a row, hide the rest */
+  .footer-column ul {
+    padding-left: 0 !important;
+  }
+  .footer-column ul li {
+    display: none !important;
+  }
+  .footer-column ul li:nth-child(-n+3) {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 0.5em 0 0 !important;
+    font-size: 0.93rem !important;
+    white-space: nowrap;
+  }
+  .footer-column ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 0.7em !important;
+    width: 100%;
+  }
+  /* Footer last paragraph (legal/disclaimer) very small */
+  footer p:last-of-type, .footer p:last-of-type, .footer-legal, .footer-disclaimer {
+    font-size: 0.75rem !important;
+    color: #888 !important;
+    margin-top: 0.7em !important;
+    margin-bottom: 0.2em !important;
+  }
+  /* Footer Company, Support, Account: only show first 3 links, left-to-right, left-aligned, with left margin */
+  .footer-column ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 0.7em !important;
+    width: 100%;
+    padding-left: 0.5em !important;
+  }
+  .footer-column ul li {
+    display: none !important;
+  }
+  .footer-column ul li:nth-child(-n+3) {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 0.5em 0 0 !important;
+    font-size: 0.93rem !important;
+    white-space: nowrap;
+    padding-left: 8px !important;
+  }
+  /* Make all legal/disclaimer text in the footer very small */
+  footer p, .footer p, footer div, .footer div {
+    font-size: 0.75rem !important;
+    color: #888 !important;
+    line-height: 1.5 !important;
+  }
+  /* Add margin above press logos image in Awards section */
+  img[src*="pressLogos"] {
+    margin-top: 1.2em !important;
+  }
+  /* Make Zerodha logo in footer much smaller */
+  .footer-logo img, footer img {
+    max-width: 70px !important;
+    width: 22vw !important;
+    height: auto !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* Make only the footer Zerodha logo much smaller */
+  footer img[alt="ZERODHA"], .footer-logo img[alt="ZERODHA"] {
+    max-width: 70px !important;
+    width: 22vw !important;
+    height: auto !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 400px) {
+  h1, h2, h3 {
+    font-size: 1.1em !important;
+  }
+  button, .btn {
+    font-size: 0.95rem !important;
+    min-width: 120px;
+    padding: 0.6rem 0.7rem !important;
+  }
+}
+
+@media (min-width: 601px) {
+  /* Make profile/team/about image perfectly oval and centered on desktop */
+  .about-img, .team-img, .people-img, img[alt*="Vinay"], img[alt*="profile"], img[alt*="team"] {
+    display: block;
+    margin: 2.2em auto 1.2em auto !important;
+    width: 220px !important;
+    height: 280px !important;
+    object-fit: cover !important;
+    border-radius: 50% / 42% !important;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.07);
+    background: #fff;
+  }
+}
+
+@media (min-width: 800px) {
+  /* Force pricing cards to be in a single row on desktop for /pricing page */
+  .pricing-row-desktop {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+  }
+  .pricing-row-desktop > .col {
+    width: 33.33% !important;
+    max-width: 33.33% !important;
+    flex: 1 1 0;
+    margin-bottom: 0 !important;
+  }
+}

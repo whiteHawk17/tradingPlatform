@@ -919,6 +919,42 @@ hr {
     width: 25%;
     max-width: 220px;
   }
+  
+  /* Holdings specific mobile styles */
+  .hide-ltp-mobile,
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .holdings-summary {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    padding: 0 2%;
+  }
+  
+  .holdings-summary .col {
+    flex-basis: 30%;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  .holdings-summary .col h5 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+  
+  .holdings-summary .col p {
+    font-size: 0.7rem;
+    margin-top: 2px;
+  }
+  
+  .holdings-chart-container {
+    max-width: 100% !important;
+    margin: 20px auto !important;
+    padding: 0 2%;
+  }
 }
  
 

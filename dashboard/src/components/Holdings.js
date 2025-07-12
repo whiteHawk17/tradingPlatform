@@ -56,11 +56,11 @@ const Holdings = () => {
             <th>Instrument</th>
             <th>Qty.</th>
             <th>Avg. cost</th>
-            <th>LTP</th>
+            <th className="hide-ltp-mobile">LTP</th>
             <th>Cur. val</th>
             <th>P&L</th>
-            <th>Net chg.</th>
-            <th>Day chg.</th>
+            <th className="hide-mobile">Net chg.</th>
+            <th className="hide-mobile">Day chg.</th>
           </tr>
           </thead>
           <tbody>
@@ -75,11 +75,11 @@ const Holdings = () => {
                 <td>{stock.name}</td>
                 <td>{stock.qty}</td>
                 <td>{stock.avg.toFixed(2)}</td>
-                <td>{stock.price.toFixed(2)}</td>
+                <td className="hide-ltp-mobile">{stock.price.toFixed(2)}</td>
                 <td>{curValue.toFixed(2)}</td>
                 <td className={profClass}>{(curValue-stock.avg * stock.qty).toFixed(2)}</td>
-                <td className={profClass}>{stock.net}</td>
-                <td className={dayClass}>{stock.day}</td>
+                <td className={`${profClass} hide-mobile`}>{stock.net}</td>
+                <td className={`${dayClass} hide-mobile`}>{stock.day}</td>
               </tr>
             )
           })}
@@ -87,7 +87,7 @@ const Holdings = () => {
         </table>
       </div>
 
-      <div className="row">
+      <div className="row holdings-summary">
         <div className="col">
           <h5>
             29,875.<span>55</span>{" "}
@@ -105,7 +105,7 @@ const Holdings = () => {
           <p>P&L</p>
         </div>
       </div>
-      <div style={{ maxWidth: 700, margin: '40px auto' }}>
+      <div className="holdings-chart-container">
         <VerticalGraph holdingsData={allHoldings} />
       </div>
     </>

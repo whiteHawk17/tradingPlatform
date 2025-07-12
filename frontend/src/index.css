@@ -163,6 +163,36 @@ ol{
     align-items: center;
     justify-content: center;
   }
+  
+  /* Fix mobile navbar alignment */
+  .navbar-nav {
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .navbar-nav .nav-item {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  .navbar-nav .nav-link {
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 8px 0 !important;
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .navbar-nav .btn {
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+    width: auto !important;
+    min-width: 120px !important;
+  }
   /* Stack homepage sections vertically: image on top, text below */
   .row.flex-wrap.align-items-center[style*="flex-direction: row"] {
     flex-direction: column !important;

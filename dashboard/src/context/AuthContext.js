@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
     if (!token) {
       setLoading(false);
       console.log('Dashboard AuthContext: No token found, redirecting to login');
-      window.location.href = `https://trading-paltform.vercel.app?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
+      window.location.href = `https://trading-platform-landing-page.vercel.app?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
       return;
     }
 
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         console.error("Dashboard AuthContext: Auth check failed:", error.response?.data || error.message);
         localStorage.removeItem('token');
         localStorage.removeItem('userName');
-        window.location.href = `https://trading-paltform.vercel.app?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
+        window.location.href = `https://trading-platform-landing-page.vercel.app?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
       } finally {
         setLoading(false);
       }
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
     setUser(null);
-    window.location.href = `https://trading-paltform.vercel.app?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
+    window.location.href = `https://trading-platform-landing-page.vercel.app?token=${localStorage.getItem('token')}&userName=${localStorage.getItem('userName')}`;
   };
 
   const value = {

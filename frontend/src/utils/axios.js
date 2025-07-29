@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://trading-paltform-backend.vercel.app/',
+    baseURL: 'https://trading-platform-backend2.vercel.app/',
 });
 
 // Add a request interceptor

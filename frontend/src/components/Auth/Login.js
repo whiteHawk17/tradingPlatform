@@ -32,7 +32,7 @@ const Login = () => {
             // Redirect to dashboard after successful login with token in URL
             const token = localStorage.getItem('token');
             const userName = localStorage.getItem('userName');
-            window.location.href = `https://trading-paltform.vercel.app?token=${token}&userName=${userName}`;
+            window.location.href = `https://trading-platform-dashboard2.vercel.app?token=${token}&userName=${userName}`;
         } catch (err) {
             setError(err.response?.data?.message || 'Something went wrong');
         } finally {

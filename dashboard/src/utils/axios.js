@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://trading-paltform-backend.vercel.app/',
+    baseURL: 'https://trading-platform-backend2.vercel.app/',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ instance.interceptors.response.use(
         if (error.response?.status === 401) {
             localStorage.removeItem('token');
             localStorage.removeItem('userName');
-            window.location.replace('https://trading-paltform.vercel.app/login');
+            window.location.replace('https://trading-platform-landing-page.vercel.app/login');
         }
         return Promise.reject(error);
     }

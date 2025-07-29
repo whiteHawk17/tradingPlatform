@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (!isAuthenticated) {
     // Redirect to the deployed frontend login page
-    window.location.replace('https://trading-paltform.vercel.app/login');
+    window.location.replace('https://trading-platform-landing-page.vercel.app/login');
     return null; // Return null to prevent further rendering of this component
   }
 

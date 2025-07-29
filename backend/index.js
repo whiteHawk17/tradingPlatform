@@ -32,8 +32,8 @@ const app = express();
 // Configure CORS (must be before any routes)
 app.use(cors({
   origin: [
-    'https://trading-paltform.vercel.app',
-    'https://trading-paltform-2rrf.vercel.app'
+    'https://trading-platform-landing-page.vercel.app',
+    'https://trading-platform-dashboard2.vercel.app'
   ],
  
   methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],

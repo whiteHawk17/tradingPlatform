@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
     setUser(null);
-    window.location.replace("https://trading-paltform.vercel.app/login");
+    window.location.replace("https://trading-platform-landing-page.vercel.app/login");
   };
 
   return (
